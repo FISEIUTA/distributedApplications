@@ -1,0 +1,922 @@
+2025-04-04 08:20:00.159 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 08:20:00.211 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-04 08:20:00.238 -05:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-04 08:20:00.298 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-04 08:20:00.306 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 08:20:00.308 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 08:20:00.314 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 08:20:00.323 -05:00 [INF] Applying migration '20250404131948_User'.
+2025-04-04 08:20:00.339 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [User] (
+    [id] int NOT NULL IDENTITY,
+    [userName] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([id])
+);
+2025-04-04 08:20:00.343 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250404131948_User', N'9.0.3');
+2025-04-04 08:20:00.348 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-04 09:45:51.024 -05:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 09:45:51.072 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-04 09:45:51.107 -05:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-04 09:45:51.179 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-04 09:45:51.188 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 09:45:51.190 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 09:45:51.208 -05:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 09:45:51.218 -05:00 [INF] Applying migration '20250404144534_Auth'.
+2025-04-04 09:45:51.275 -05:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'id', N'userName') AND [object_id] = OBJECT_ID(N'[User]'))
+    SET IDENTITY_INSERT [User] ON;
+INSERT INTO [User] ([id], [userName])
+VALUES (1, N'admin');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'id', N'userName') AND [object_id] = OBJECT_ID(N'[User]'))
+    SET IDENTITY_INSERT [User] OFF;
+2025-04-04 09:45:51.277 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250404144534_Auth', N'9.0.3');
+2025-04-04 09:45:51.283 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-04 09:59:59.016 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 09:59:59.054 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-04 09:59:59.073 -05:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-04 09:59:59.179 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-04 09:59:59.187 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 09:59:59.188 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 09:59:59.192 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 09:59:59.204 -05:00 [INF] Reverting migration '20250404144534_Auth'.
+2025-04-04 09:59:59.226 -05:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM [User]
+WHERE [id] = 1;
+SELECT @@ROWCOUNT;
+2025-04-04 10:00:34.290 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:00:34.332 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 10:00:34.350 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 10:00:50.914 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:00:50.969 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 10:00:50.982 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 10:01:01.688 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:01:01.766 -05:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 10:01:01.787 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 10:01:12.515 -05:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:01:12.566 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 10:01:12.581 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 10:01:24.022 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:01:24.069 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 10:01:24.085 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 10:02:49.334 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:02:49.369 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-04 10:02:49.387 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-04 10:02:49.477 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-04 10:02:49.483 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:02:49.484 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 10:02:49.486 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 10:02:49.498 -05:00 [INF] Reverting migration '20250404144534_Auth'.
+2025-04-04 10:02:49.515 -05:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM [User]
+WHERE [id] = 1;
+SELECT @@ROWCOUNT;
+2025-04-04 10:04:24.096 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:04:27.186 -05:00 [INF] Executed DbCommand (3,028ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [PersonDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2025-04-04 10:04:27.229 -05:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [PersonDB];
+2025-04-04 10:21:04.988 -05:00 [INF] Executed DbCommand (183ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [PersonDB];
+2025-04-04 10:21:05.064 -05:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [PersonDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-04-04 10:21:05.080 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:21:05.082 -05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-04 10:21:05.104 -05:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-04 10:21:05.167 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-04 10:21:05.175 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-04 10:21:05.177 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-04 10:21:05.183 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-04 10:21:05.190 -05:00 [INF] Applying migration '20250404152052_Initial'.
+2025-04-04 10:21:05.216 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Client] (
+    [id] int NOT NULL IDENTITY,
+    [email] nvarchar(max) NOT NULL,
+    [name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Client] PRIMARY KEY ([id])
+);
+2025-04-04 10:21:05.218 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Order] (
+    [id] int NOT NULL IDENTITY,
+    [Product] nvarchar(max) NOT NULL,
+    [Amount] int NOT NULL,
+    CONSTRAINT [PK_Order] PRIMARY KEY ([id])
+);
+2025-04-04 10:21:05.220 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [People] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Age] int NOT NULL,
+    CONSTRAINT [PK_People] PRIMARY KEY ([Id])
+);
+2025-04-04 10:21:05.221 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [User] (
+    [id] int NOT NULL IDENTITY,
+    [userName] nvarchar(max) NOT NULL,
+    [password] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([id])
+);
+2025-04-04 10:21:05.250 -05:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'id', N'password', N'userName') AND [object_id] = OBJECT_ID(N'[User]'))
+    SET IDENTITY_INSERT [User] ON;
+INSERT INTO [User] ([id], [password], [userName])
+VALUES (1, N'7gwFWzurUxDOP8ycEFbqHqkfVOEljbSrkgAjcv5akuwt9nXpcOWVdYaun2p/Y8dg', N'admin');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'id', N'password', N'userName') AND [object_id] = OBJECT_ID(N'[User]'))
+    SET IDENTITY_INSERT [User] OFF;
+2025-04-04 10:21:05.251 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250404152052_Initial', N'9.0.3');
+2025-04-04 10:21:05.256 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-04 10:22:07.596 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 10:22:07.949 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 10:22:07.951 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 10:22:08.050 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 10:22:08.052 -05:00 [INF] Hosting environment: Development
+2025-04-04 10:22:08.053 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 10:22:08.574 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:22:08.807 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 244.4536ms
+2025-04-04 10:22:08.843 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:22:08.866 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 23.1462ms
+2025-04-04 10:22:08.937 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:22:09.054 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.4884ms
+2025-04-04 10:22:09.175 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:22:09.225 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.6534ms
+2025-04-04 10:22:26.777 -05:00 [INF] Application is shutting down...
+2025-04-04 10:31:40.690 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 10:31:40.930 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 10:31:40.933 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 10:31:41.046 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 10:31:41.047 -05:00 [INF] Hosting environment: Development
+2025-04-04 10:31:41.048 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 10:31:41.420 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:31:41.652 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 238.2106ms
+2025-04-04 10:31:41.677 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:31:41.687 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 9.7139ms
+2025-04-04 10:31:41.769 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:31:41.827 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.8603ms
+2025-04-04 10:31:41.992 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:31:42.024 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 32.6366ms
+2025-04-04 10:31:52.356 -05:00 [INF] Application is shutting down...
+2025-04-04 10:32:27.708 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 10:32:27.942 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 10:32:27.944 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 10:32:28.020 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 10:32:28.022 -05:00 [INF] Hosting environment: Development
+2025-04-04 10:32:28.025 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 10:32:28.419 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:32:28.598 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 186.579ms
+2025-04-04 10:32:28.616 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:32:28.627 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 11.2658ms
+2025-04-04 10:32:28.694 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:32:28.758 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.3596ms
+2025-04-04 10:32:28.823 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:32:28.852 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.6141ms
+2025-04-04 10:32:35.018 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 50
+2025-04-04 10:32:35.934 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:32:35.973 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 10:32:37.083 -05:00 [INF] Executed DbCommand (44ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 10:32:37.107 -05:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-04-04 10:32:37.128 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 1150.1107ms
+2025-04-04 10:32:37.133 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:32:37.143 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 401 null application/problem+json; charset=utf-8 2125.2669ms
+2025-04-04 10:33:06.845 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 48
+2025-04-04 10:33:06.861 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:33:06.863 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 10:33:06.896 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 10:33:07.121 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 256.3928ms
+2025-04-04 10:33:07.124 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:33:07.142 -05:00 [ERR] Ocurrió un error inesperado
+System.ArgumentOutOfRangeException: IDX10653: The encryption algorithm 'http://www.w3.org/2001/04/xmldsig-more#hmac-sha256' requires a key size of at least '128' bits. Key '[PII of type 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', is of size: '72'. (Parameter 'key')
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider..ctor(SecurityKey key, String algorithm, Boolean willCreateSignatures)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateSignatureProvider(SecurityKey key, String algorithm, Boolean willCreateSignatures, Boolean cacheProvider)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateForSigning(SecurityKey key, String algorithm, Boolean cacheProvider)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateForSigning(SecurityKey key, String algorithm)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateJwtSecurityTokenPrivate(String issuer, String audience, ClaimsIdentity subject, Nullable`1 notBefore, Nullable`1 expires, Nullable`1 issuedAt, SigningCredentials signingCredentials, EncryptingCredentials encryptingCredentials, IDictionary`2 claimCollection, String tokenType, IDictionary`2 additionalHeaderClaims, IDictionary`2 additionalInnerHeaderClaims)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateToken(SecurityTokenDescriptor tokenDescriptor)
+   at ApiResD.Service.JwtService.Authenticate(LoginRequest loginRequest) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Service\JwtService.cs:line 53
+   at ApiResD.Controllers.Auth.Login(LoginRequest request) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Controllers\Auth.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at ApiResD.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Middleware\ErrorHandlingMiddleware.cs:line 25
+2025-04-04 10:33:07.280 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 500 null application/json 435.1572ms
+2025-04-04 10:35:41.023 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:35:41.043 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 20.4056ms
+2025-04-04 10:35:41.065 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:35:41.073 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 8.2616ms
+2025-04-04 10:35:41.134 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:35:41.164 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.8438ms
+2025-04-04 10:35:41.227 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:35:41.253 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.7327ms
+2025-04-04 10:35:41.259 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/favicon-32x32.png - null null
+2025-04-04 10:35:41.288 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-04-04 10:35:41.289 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/favicon-32x32.png - 200 628 image/png 29.764ms
+2025-04-04 10:36:17.090 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 48
+2025-04-04 10:36:17.097 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:36:17.100 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 10:36:17.156 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 10:36:17.209 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 105.8859ms
+2025-04-04 10:36:17.211 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:36:17.227 -05:00 [ERR] Ocurrió un error inesperado
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'http://www.w3.org/2001/04/xmldsig-more#hmac-sha256', the key size must be greater than: '256' bits, key has '232' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateJwtSecurityTokenPrivate(String issuer, String audience, ClaimsIdentity subject, Nullable`1 notBefore, Nullable`1 expires, Nullable`1 issuedAt, SigningCredentials signingCredentials, EncryptingCredentials encryptingCredentials, IDictionary`2 claimCollection, String tokenType, IDictionary`2 additionalHeaderClaims, IDictionary`2 additionalInnerHeaderClaims)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateToken(SecurityTokenDescriptor tokenDescriptor)
+   at ApiResD.Service.JwtService.Authenticate(LoginRequest loginRequest) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Service\JwtService.cs:line 53
+   at ApiResD.Controllers.Auth.Login(LoginRequest request) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Controllers\Auth.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at ApiResD.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Middleware\ErrorHandlingMiddleware.cs:line 25
+2025-04-04 10:36:17.236 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 500 null application/json 147.1321ms
+2025-04-04 10:36:25.200 -05:00 [INF] Application is shutting down...
+2025-04-04 10:36:32.738 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 10:36:32.985 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 10:36:32.987 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 10:36:33.069 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 10:36:33.071 -05:00 [INF] Hosting environment: Development
+2025-04-04 10:36:33.072 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 10:36:33.387 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:36:33.553 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 170.3187ms
+2025-04-04 10:36:33.575 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:36:33.587 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 11.8598ms
+2025-04-04 10:36:33.651 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:36:33.718 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.5427ms
+2025-04-04 10:36:33.776 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:36:33.815 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.3798ms
+2025-04-04 10:37:02.311 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:37:02.332 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 21.9789ms
+2025-04-04 10:37:02.348 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:37:02.354 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 6.8359ms
+2025-04-04 10:37:02.377 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:37:02.406 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.2277ms
+2025-04-04 10:37:02.457 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:37:02.497 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.0405ms
+2025-04-04 10:37:11.563 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 48
+2025-04-04 10:37:11.642 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:37:11.668 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 10:37:12.826 -05:00 [INF] Executed DbCommand (52ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 10:37:13.005 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 1326.1693ms
+2025-04-04 10:37:13.007 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:37:13.024 -05:00 [ERR] Ocurrió un error inesperado
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'http://www.w3.org/2001/04/xmldsig-more#hmac-sha256', the key size must be greater than: '256' bits, key has '232' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateJwtSecurityTokenPrivate(String issuer, String audience, ClaimsIdentity subject, Nullable`1 notBefore, Nullable`1 expires, Nullable`1 issuedAt, SigningCredentials signingCredentials, EncryptingCredentials encryptingCredentials, IDictionary`2 claimCollection, String tokenType, IDictionary`2 additionalHeaderClaims, IDictionary`2 additionalInnerHeaderClaims)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateToken(SecurityTokenDescriptor tokenDescriptor)
+   at ApiResD.Service.JwtService.Authenticate(LoginRequest loginRequest) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Service\JwtService.cs:line 53
+   at ApiResD.Controllers.Auth.Login(LoginRequest request) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Controllers\Auth.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at ApiResD.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Middleware\ErrorHandlingMiddleware.cs:line 25
+2025-04-04 10:37:13.075 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 500 null application/json 1511.6057ms
+2025-04-04 10:39:47.562 -05:00 [INF] Application is shutting down...
+2025-04-04 10:39:56.084 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 10:39:56.340 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 10:39:56.342 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 10:39:56.437 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 10:39:56.439 -05:00 [INF] Hosting environment: Development
+2025-04-04 10:39:56.440 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 10:39:56.679 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:39:56.888 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 214.5628ms
+2025-04-04 10:39:56.908 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:39:56.922 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 13.9599ms
+2025-04-04 10:39:56.992 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:39:57.059 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.3634ms
+2025-04-04 10:39:57.124 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:39:57.160 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.5598ms
+2025-04-04 10:40:07.854 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 48
+2025-04-04 10:40:07.923 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:40:07.949 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 10:40:09.024 -05:00 [INF] Executed DbCommand (34ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 10:40:09.170 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 1212.1059ms
+2025-04-04 10:40:09.175 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:40:09.190 -05:00 [ERR] Ocurrió un error inesperado
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'http://www.w3.org/2001/04/xmldsig-more#hmac-sha256', the key size must be greater than: '256' bits, key has '240' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateJwtSecurityTokenPrivate(String issuer, String audience, ClaimsIdentity subject, Nullable`1 notBefore, Nullable`1 expires, Nullable`1 issuedAt, SigningCredentials signingCredentials, EncryptingCredentials encryptingCredentials, IDictionary`2 claimCollection, String tokenType, IDictionary`2 additionalHeaderClaims, IDictionary`2 additionalInnerHeaderClaims)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.CreateToken(SecurityTokenDescriptor tokenDescriptor)
+   at ApiResD.Service.JwtService.Authenticate(LoginRequest loginRequest) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Service\JwtService.cs:line 53
+   at ApiResD.Controllers.Auth.Login(LoginRequest request) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Controllers\Auth.cs:line 21
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at ApiResD.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\kiwar\source\repos\ApiResD\ApiResD\Middleware\ErrorHandlingMiddleware.cs:line 25
+2025-04-04 10:40:09.238 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 500 null application/json 1384.5731ms
+2025-04-04 10:40:38.115 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 48
+2025-04-04 10:40:38.123 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:40:38.126 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 10:40:38.164 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 10:40:38.179 -05:00 [INF] Executing OkObjectResult, writing value of type 'ApiResD.Models.dto.LogginResponseDto'.
+2025-04-04 10:40:38.185 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 54.0133ms
+2025-04-04 10:40:38.186 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 10:40:38.188 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 200 null application/json; charset=utf-8 73.1826ms
+2025-04-04 10:40:57.657 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:40:57.663 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 5.9823ms
+2025-04-04 10:40:57.905 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:40:57.953 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 48.202ms
+2025-04-04 10:40:59.484 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:40:59.505 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 21.5735ms
+2025-04-04 10:40:59.727 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:40:59.753 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.5445ms
+2025-04-04 10:41:01.197 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:41:01.213 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 16.2205ms
+2025-04-04 10:41:01.424 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:41:01.450 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.1136ms
+2025-04-04 10:41:02.264 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:41:02.270 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 5.6417ms
+2025-04-04 10:41:02.553 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:41:02.576 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.5664ms
+2025-04-04 10:46:02.225 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:46:02.253 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 28.278ms
+2025-04-04 10:46:02.271 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:46:02.275 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 4.321ms
+2025-04-04 10:46:02.330 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:46:02.364 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.4931ms
+2025-04-04 10:46:02.429 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:46:02.455 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.4155ms
+2025-04-04 10:46:07.671 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 10:46:07.678 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.PedidoesController.GetOrder (ApiResD)'
+2025-04-04 10:46:07.686 -05:00 [INF] Route matched with {action = "GetOrder", controller = "Pedidoes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiResD.Models.Pedido]]] GetOrder() on controller ApiResD.Controllers.PedidoesController (ApiResD).
+2025-04-04 10:46:07.797 -05:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[id], [o].[Amount], [o].[Product]
+FROM [Order] AS [o]
+2025-04-04 10:46:07.814 -05:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiResD.Models.Pedido, ApiResD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-04 10:46:07.822 -05:00 [INF] Executed action ApiResD.Controllers.PedidoesController.GetOrder (ApiResD) in 132.7814ms
+2025-04-04 10:46:07.826 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.PedidoesController.GetOrder (ApiResD)'
+2025-04-04 10:46:07.827 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 200 null application/json; charset=utf-8 156.8095ms
+2025-04-04 10:46:30.786 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:46:30.807 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 22.7163ms
+2025-04-04 10:46:30.841 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:46:30.846 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 5.0987ms
+2025-04-04 10:46:30.870 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:46:30.889 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.3106ms
+2025-04-04 10:46:30.944 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:46:30.960 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.399ms
+2025-04-04 10:46:31.881 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:46:31.904 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 24.2785ms
+2025-04-04 10:46:31.926 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:46:31.929 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:46:31.937 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 8.8836ms
+2025-04-04 10:46:31.946 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.3255ms
+2025-04-04 10:46:32.033 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:46:32.044 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.55ms
+2025-04-04 10:46:32.692 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:46:32.699 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 7.8527ms
+2025-04-04 10:46:32.717 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:46:32.717 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:46:32.728 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 10.9002ms
+2025-04-04 10:46:32.744 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.8669ms
+2025-04-04 10:46:32.822 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:46:32.832 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.2267ms
+2025-04-04 10:46:42.108 -05:00 [INF] Application is shutting down...
+2025-04-04 10:47:12.533 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 10:47:12.752 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 10:47:12.756 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 10:47:12.858 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 10:47:12.860 -05:00 [INF] Hosting environment: Development
+2025-04-04 10:47:12.861 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 10:47:13.255 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:47:13.419 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 170.4497ms
+2025-04-04 10:47:13.444 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:47:13.457 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 13.1475ms
+2025-04-04 10:47:13.524 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:47:13.588 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.6232ms
+2025-04-04 10:47:13.657 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:47:13.690 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.0004ms
+2025-04-04 10:47:19.658 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:47:19.675 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 17.5724ms
+2025-04-04 10:47:19.703 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:47:19.709 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 9.1718ms
+2025-04-04 10:47:19.729 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:47:19.756 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.7796ms
+2025-04-04 10:47:19.903 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:47:19.929 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.1577ms
+2025-04-04 10:50:18.706 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:50:18.731 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 22.9639ms
+2025-04-04 10:50:18.756 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:50:18.761 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 5.0665ms
+2025-04-04 10:50:18.914 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:50:18.941 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.0529ms
+2025-04-04 10:50:18.984 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:50:19.005 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.7922ms
+2025-04-04 10:51:17.225 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:51:17.241 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 16.3843ms
+2025-04-04 10:51:17.276 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:51:17.283 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 8.7305ms
+2025-04-04 10:51:17.404 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:51:17.423 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.9936ms
+2025-04-04 10:51:17.484 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:51:17.500 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.8309ms
+2025-04-04 10:55:56.315 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:55:56.340 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 26.1361ms
+2025-04-04 10:55:56.363 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:55:56.367 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 4.1548ms
+2025-04-04 10:55:56.430 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:55:56.448 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 18.5352ms
+2025-04-04 10:55:56.546 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:55:56.564 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 17.8351ms
+2025-04-04 10:56:00.791 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:56:00.811 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 20.5688ms
+2025-04-04 10:56:00.845 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:56:00.849 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 3.9082ms
+2025-04-04 10:56:00.872 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:56:00.897 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.0548ms
+2025-04-04 10:56:00.956 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:56:00.967 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.2135ms
+2025-04-04 10:56:35.745 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 10:56:35.833 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 10:56:35.839 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 10:56:35.842 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 401 0 null 96.8385ms
+2025-04-04 10:57:22.690 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Pedidoes - application/json 49
+2025-04-04 10:57:22.720 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 10:57:22.722 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 10:57:22.723 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Pedidoes - 401 0 null 32.9812ms
+2025-04-04 10:58:38.349 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:58:38.374 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 27.1464ms
+2025-04-04 10:58:38.404 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:58:38.408 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 4.3152ms
+2025-04-04 10:58:38.536 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:58:38.555 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.3633ms
+2025-04-04 10:58:38.684 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:58:38.699 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.4206ms
+2025-04-04 10:58:38.788 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:58:38.796 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 8.2968ms
+2025-04-04 10:58:38.829 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:58:38.834 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 4.8243ms
+2025-04-04 10:58:38.863 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:58:38.883 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.1972ms
+2025-04-04 10:58:38.969 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:58:38.980 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.7006ms
+2025-04-04 10:58:47.770 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Pedidoes - application/json 49
+2025-04-04 10:58:47.783 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 10:58:47.785 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 10:58:47.787 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Pedidoes - 401 0 null 18.0151ms
+2025-04-04 10:58:55.632 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:58:55.645 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 12.314ms
+2025-04-04 10:58:55.673 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:58:55.679 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 6.2152ms
+2025-04-04 10:58:55.704 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:58:55.733 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.0344ms
+2025-04-04 10:58:55.854 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:58:55.882 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.3345ms
+2025-04-04 10:59:07.989 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Pedidoes - application/json 49
+2025-04-04 10:59:07.992 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 10:59:07.994 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 10:59:07.994 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Pedidoes - 401 0 null 6.0937ms
+2025-04-04 10:59:42.688 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 10:59:42.700 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 11.602ms
+2025-04-04 10:59:42.724 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 10:59:42.725 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 10:59:42.731 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 5.858ms
+2025-04-04 10:59:42.763 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.0515ms
+2025-04-04 10:59:42.838 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 10:59:42.847 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.4962ms
+2025-04-04 10:59:48.766 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Pedidoes - application/json 49
+2025-04-04 10:59:48.772 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 10:59:48.774 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 10:59:48.775 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Pedidoes - 401 0 null 9.1278ms
+2025-04-04 10:59:56.680 -05:00 [INF] Application is shutting down...
+2025-04-04 11:00:22.496 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 11:00:22.767 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 11:00:22.772 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 11:00:22.920 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 11:00:22.922 -05:00 [INF] Hosting environment: Development
+2025-04-04 11:00:22.928 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 11:00:23.013 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 11:00:23.188 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 181.3073ms
+2025-04-04 11:00:23.219 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 11:00:23.236 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 16.2849ms
+2025-04-04 11:00:23.297 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 11:00:23.370 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 73.5052ms
+2025-04-04 11:00:23.453 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 11:00:23.485 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.6012ms
+2025-04-04 11:00:37.096 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Pedidoes - application/json 49
+2025-04-04 11:00:37.196 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.PedidoesController.PostPedido (ApiResD)'
+2025-04-04 11:00:37.235 -05:00 [INF] Route matched with {action = "PostPedido", controller = "Pedidoes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiResD.Models.Pedido]] PostPedido(ApiResD.Models.Pedido) on controller ApiResD.Controllers.PedidoesController (ApiResD).
+2025-04-04 11:00:38.402 -05:00 [INF] Executed DbCommand (68ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Order] ([Amount], [Product])
+OUTPUT INSERTED.[id]
+VALUES (@p0, @p1);
+2025-04-04 11:00:38.457 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'ApiResD.Models.Pedido'.
+2025-04-04 11:00:38.486 -05:00 [INF] Executed action ApiResD.Controllers.PedidoesController.PostPedido (ApiResD) in 1243.2829ms
+2025-04-04 11:00:38.492 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.PedidoesController.PostPedido (ApiResD)'
+2025-04-04 11:00:38.511 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Pedidoes - 201 null application/json; charset=utf-8 1415.503ms
+2025-04-04 11:01:03.368 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 11:01:03.419 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 53.6794ms
+2025-04-04 11:01:03.447 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 11:01:03.458 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 11.0335ms
+2025-04-04 11:01:03.657 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 11:01:03.691 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.9041ms
+2025-04-04 11:01:03.820 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 11:01:03.847 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.3426ms
+2025-04-04 11:01:09.726 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 11:01:09.737 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.PedidoesController.GetOrder (ApiResD)'
+2025-04-04 11:01:09.749 -05:00 [INF] Route matched with {action = "GetOrder", controller = "Pedidoes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiResD.Models.Pedido]]] GetOrder() on controller ApiResD.Controllers.PedidoesController (ApiResD).
+2025-04-04 11:01:10.249 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[id], [o].[Amount], [o].[Product]
+FROM [Order] AS [o]
+2025-04-04 11:01:10.287 -05:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiResD.Models.Pedido, ApiResD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-04 11:01:10.305 -05:00 [INF] Executed action ApiResD.Controllers.PedidoesController.GetOrder (ApiResD) in 553.1882ms
+2025-04-04 11:01:10.312 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.PedidoesController.GetOrder (ApiResD)'
+2025-04-04 11:01:10.317 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 200 null application/json; charset=utf-8 590.4788ms
+2025-04-04 11:01:13.483 -05:00 [INF] Application is shutting down...
+2025-04-04 11:01:21.735 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 11:01:22.010 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 11:01:22.012 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 11:01:22.244 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 11:01:22.247 -05:00 [INF] Hosting environment: Development
+2025-04-04 11:01:22.249 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 11:01:22.461 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 11:01:22.644 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 188.6261ms
+2025-04-04 11:01:22.674 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 11:01:22.705 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 31.6747ms
+2025-04-04 11:01:22.777 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 11:01:22.872 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 95.2446ms
+2025-04-04 11:01:22.920 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 11:01:22.947 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.096ms
+2025-04-04 11:01:28.460 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 11:01:28.611 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 11:01:28.617 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 11:01:28.619 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 401 0 null 158.8904ms
+2025-04-04 11:01:48.442 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 48
+2025-04-04 11:01:48.453 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 11:01:48.485 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 11:01:49.688 -05:00 [INF] Executed DbCommand (43ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 11:01:49.844 -05:00 [INF] Executing OkObjectResult, writing value of type 'ApiResD.Models.dto.LogginResponseDto'.
+2025-04-04 11:01:49.854 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 1358.091ms
+2025-04-04 11:01:49.859 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 11:01:49.868 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 200 null application/json; charset=utf-8 1426.3155ms
+2025-04-04 11:02:06.661 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 11:02:06.712 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-04-04 11:02:06.742 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+2025-04-04 11:02:06.749 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 11:02:06.757 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 11:02:06.760 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 401 0 null 99.0486ms
+2025-04-04 11:02:54.356 -05:00 [INF] Application is shutting down...
+2025-04-04 11:03:08.115 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 11:03:08.399 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 11:03:08.402 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 11:03:08.527 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 11:03:08.528 -05:00 [INF] Hosting environment: Development
+2025-04-04 11:03:08.530 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 11:03:08.685 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 11:03:08.884 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 205.5383ms
+2025-04-04 11:03:08.908 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 11:03:08.920 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 12.4196ms
+2025-04-04 11:03:08.990 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 11:03:09.061 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.8701ms
+2025-04-04 11:03:09.146 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 11:03:09.180 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.9337ms
+2025-04-04 11:03:25.745 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 11:03:26.011 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-04-04 11:03:26.091 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+2025-04-04 11:03:26.109 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 11:03:26.123 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 11:03:26.128 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 401 0 null 383.9029ms
+2025-04-04 11:05:02.255 -05:00 [INF] Application is shutting down...
+2025-04-04 11:05:12.332 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 11:05:12.577 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 11:05:12.579 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 11:05:12.755 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 11:05:12.757 -05:00 [INF] Hosting environment: Development
+2025-04-04 11:05:12.759 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 11:05:13.179 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 11:05:13.391 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 216.4921ms
+2025-04-04 11:05:13.407 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 11:05:13.420 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 13.3276ms
+2025-04-04 11:05:13.484 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 11:05:13.553 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.6245ms
+2025-04-04 11:05:13.613 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 11:05:13.641 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.1339ms
+2025-04-04 11:05:24.867 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 11:05:25.104 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10206: Unable to validate audience. The 'audiences' parameter is empty.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-04-04 11:05:25.167 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10206: Unable to validate audience. The 'audiences' parameter is empty.
+2025-04-04 11:05:25.180 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-04-04 11:05:25.189 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-04-04 11:05:25.192 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 401 0 null 325.6945ms
+2025-04-04 11:05:58.732 -05:00 [INF] Application is shutting down...
+2025-04-04 11:06:09.266 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 11:06:09.523 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 11:06:09.526 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 11:06:09.651 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 11:06:09.652 -05:00 [INF] Hosting environment: Development
+2025-04-04 11:06:09.654 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 11:06:10.017 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 11:06:10.212 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 202.3217ms
+2025-04-04 11:06:10.238 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 11:06:10.256 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 17.8751ms
+2025-04-04 11:06:10.327 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 11:06:10.393 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.6403ms
+2025-04-04 11:06:10.455 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 11:06:10.540 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 85.7448ms
+2025-04-04 11:06:20.842 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7107/api/Auth/login - application/json 48
+2025-04-04 11:06:20.990 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 11:06:21.051 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ApiResD.Models.dto.LoginRequest) on controller ApiResD.Controllers.Auth (ApiResD).
+2025-04-04 11:06:23.810 -05:00 [INF] Executed DbCommand (75ms) [Parameters=[@__loginRequest_userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[id], [u].[password], [u].[userName]
+FROM [User] AS [u]
+WHERE [u].[userName] = @__loginRequest_userName_0
+2025-04-04 11:06:24.033 -05:00 [INF] Executing OkObjectResult, writing value of type 'ApiResD.Models.dto.LogginResponseDto'.
+2025-04-04 11:06:24.056 -05:00 [INF] Executed action ApiResD.Controllers.Auth.Login (ApiResD) in 2991.229ms
+2025-04-04 11:06:24.062 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.Auth.Login (ApiResD)'
+2025-04-04 11:06:24.079 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7107/api/Auth/login - 200 null application/json; charset=utf-8 3237.4781ms
+2025-04-04 11:06:41.202 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Clients - null null
+2025-04-04 11:06:41.288 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.ClientsController.GetClient (ApiResD)'
+2025-04-04 11:06:41.298 -05:00 [INF] Route matched with {action = "GetClient", controller = "Clients"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiResD.Models.Client]]] GetClient() on controller ApiResD.Controllers.ClientsController (ApiResD).
+2025-04-04 11:06:41.433 -05:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[email], [c].[name]
+FROM [Client] AS [c]
+2025-04-04 11:06:41.478 -05:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiResD.Models.Client, ApiResD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-04 11:06:41.497 -05:00 [INF] Executed action ApiResD.Controllers.ClientsController.GetClient (ApiResD) in 194.538ms
+2025-04-04 11:06:41.505 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.ClientsController.GetClient (ApiResD)'
+2025-04-04 11:06:41.513 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Clients - 200 null application/json; charset=utf-8 311.4495ms
+2025-04-04 11:07:38.434 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Pedidoes - null null
+2025-04-04 11:07:38.458 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.PedidoesController.GetOrder (ApiResD)'
+2025-04-04 11:07:38.466 -05:00 [INF] Route matched with {action = "GetOrder", controller = "Pedidoes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiResD.Models.Pedido]]] GetOrder() on controller ApiResD.Controllers.PedidoesController (ApiResD).
+2025-04-04 11:07:38.539 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[id], [o].[Amount], [o].[Product]
+FROM [Order] AS [o]
+2025-04-04 11:07:38.553 -05:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiResD.Models.Pedido, ApiResD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-04 11:07:38.560 -05:00 [INF] Executed action ApiResD.Controllers.PedidoesController.GetOrder (ApiResD) in 86.6287ms
+2025-04-04 11:07:38.565 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.PedidoesController.GetOrder (ApiResD)'
+2025-04-04 11:07:38.571 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Pedidoes - 200 null application/json; charset=utf-8 137.2481ms
+2025-04-04 11:07:53.948 -05:00 [INF] Application is shutting down...
+2025-04-04 15:14:25.762 -05:00 [INF] User profile is available. Using 'C:\Users\kiwar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-04 15:14:26.074 -05:00 [INF] Now listening on: https://localhost:7107
+2025-04-04 15:14:26.078 -05:00 [INF] Now listening on: http://localhost:5119
+2025-04-04 15:14:26.162 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-04 15:14:26.163 -05:00 [INF] Hosting environment: Development
+2025-04-04 15:14:26.164 -05:00 [INF] Content root path: C:\Users\kiwar\source\repos\ApiResD\ApiResD
+2025-04-04 15:14:26.531 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/index.html - null null
+2025-04-04 15:14:26.724 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/index.html - 200 null text/html;charset=utf-8 198.5534ms
+2025-04-04 15:14:26.752 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-04 15:14:26.766 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 14.7239ms
+2025-04-04 15:14:26.838 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/_vs/browserLink - null null
+2025-04-04 15:14:26.935 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 97.5395ms
+2025-04-04 15:14:27.007 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - null null
+2025-04-04 15:14:27.048 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.6808ms
+2025-04-04 15:14:43.322 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7107/api/Clients - null null
+2025-04-04 15:14:43.431 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.ClientsController.GetClient (ApiResD)'
+2025-04-04 15:14:43.457 -05:00 [INF] Route matched with {action = "GetClient", controller = "Clients"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiResD.Models.Client]]] GetClient() on controller ApiResD.Controllers.ClientsController (ApiResD).
+2025-04-04 15:14:44.563 -05:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[email], [c].[name]
+FROM [Client] AS [c]
+2025-04-04 15:14:44.598 -05:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiResD.Models.Client, ApiResD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-04 15:14:44.612 -05:00 [INF] Executed action ApiResD.Controllers.ClientsController.GetClient (ApiResD) in 1146.4883ms
+2025-04-04 15:14:44.614 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.ClientsController.GetClient (ApiResD)'
+2025-04-04 15:14:44.623 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7107/api/Clients - 200 null application/json; charset=utf-8 1300.9031ms
+2025-04-04 15:16:18.359 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7107/api/Clients - null null
+2025-04-04 15:16:18.365 -05:00 [INF] Executing endpoint 'ApiResD.Controllers.ClientsController.GetClient (ApiResD)'
+2025-04-04 15:16:18.367 -05:00 [INF] Route matched with {action = "GetClient", controller = "Clients"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiResD.Models.Client]]] GetClient() on controller ApiResD.Controllers.ClientsController (ApiResD).
+2025-04-04 15:16:18.395 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[email], [c].[name]
+FROM [Client] AS [c]
+2025-04-04 15:16:18.398 -05:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiResD.Models.Client, ApiResD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-04 15:16:18.410 -05:00 [INF] Executed action ApiResD.Controllers.ClientsController.GetClient (ApiResD) in 40.4038ms
+2025-04-04 15:16:18.411 -05:00 [INF] Executed endpoint 'ApiResD.Controllers.ClientsController.GetClient (ApiResD)'
+2025-04-04 15:16:18.412 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7107/api/Clients - 200 null application/json; charset=utf-8 53.9214ms
+2025-04-04 15:21:59.956 -05:00 [INF] Application is shutting down...

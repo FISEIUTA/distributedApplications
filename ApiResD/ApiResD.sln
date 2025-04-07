@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiResD", "ApiResD\ApiResD.csproj", "{1A18C12E-8455-4E40-9936-68C09E3BC1D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Public", "Public\Public.csproj", "{251875EE-4EEF-47BA-9C90-ACDA8A123EE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A18C12E-8455-4E40-9936-68C09E3BC1D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A18C12E-8455-4E40-9936-68C09E3BC1D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A18C12E-8455-4E40-9936-68C09E3BC1D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A18C12E-8455-4E40-9936-68C09E3BC1D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{251875EE-4EEF-47BA-9C90-ACDA8A123EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251875EE-4EEF-47BA-9C90-ACDA8A123EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251875EE-4EEF-47BA-9C90-ACDA8A123EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251875EE-4EEF-47BA-9C90-ACDA8A123EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57475D6B-AFC5-4187-A789-0C04763C87A5}
+	EndGlobalSection
+EndGlobal

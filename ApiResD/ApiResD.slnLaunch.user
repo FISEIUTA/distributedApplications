@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "ApiResD\\ApiResD.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Public\\Public.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
